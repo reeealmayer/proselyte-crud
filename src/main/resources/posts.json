@@ -1,0 +1,84 @@
+[
+  {
+    "id": 1,
+    "title": "updated",
+    "content": "updated",
+    "labels": [
+      {
+        "id": 1,
+        "name": "апдейт",
+        "status": "ACTIVE"
+      },
+      {
+        "id": 2,
+        "name": "first",
+        "status": "ACTIVE"
+      },
+      {
+        "id": 3,
+        "name": "first",
+        "status": "ACTIVE"
+      }
+    ],
+    "status": "DELETED"
+  },
+  {
+    "id": 2,
+    "title": "title",
+    "content": "content",
+    "labels": [
+      {
+        "id": 1,
+        "name": "апдейт",
+        "status": "ACTIVE"
+      }
+    ],
+    "status": "ACTIVE"
+  },
+  {
+    "id": 3,
+    "title": "title",
+    "content": "content",
+    "labels": [
+      {
+        "id": 1,
+        "name": "апдейт",
+        "status": "ACTIVE"
+      }
+    ],
+    "status": "ACTIVE"
+  },
+  {
+    "id": 4,
+    "title": "title",
+    "content": "content",
+    "labels": [
+      {
+        "id": 1,
+        "name": "апдейт",
+        "status": "ACTIVE"
+      }
+    ],
+    "status": "ACTIVE"
+  },
+  {
+    "id": 5,
+    "title": "title",
+    "content": "content",
+    "labels": [
+      {
+        "id": 1,
+        "name": "апдейт",
+        "status": "ACTIVE"
+      }
+    ],
+    "status": "DELETED"
+  },
+  {
+    "id": 6,
+    "title": "Novii",
+    "content": "Novii",
+    "labels": [],
+    "status": "ACTIVE"
+  }
+]
