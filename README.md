@@ -19,4 +19,4 @@
 - ./gradle build
 
 # Запуск приложения
-- java -cp build/classes/java/main kz.education.Main
+- java -cp build/classes/java/main kz.education.AppRunner

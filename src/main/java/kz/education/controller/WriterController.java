@@ -24,22 +24,25 @@ public class WriterController {
         return writerRepository.getById(id);
     }
 
-    public Writer create(String firstName, String lastName) {
+    public Writer create(String firstName, String lastName, List<Post> posts) {
         Writer writer = Writer.builder()
                 .firstName(firstName)
                 .lastName(lastName)
                 .status(Status.ACTIVE)
-                .posts(Collections.emptyList())
+                .posts(posts)
                 .build();
         return writerRepository.save(writer);
     }
 
-    public Writer update(Long id, String firstName, String lastName) {
+    public Writer update(Long id, String firstName, String lastName, List<Post> posts) {
         Writer writer = Writer.builder()
                 .id(id)
                 .firstName(firstName)
                 .lastName(lastName)
                 .build();
+        if (!posts.isEmpty()) {
+            writer.setPosts(posts);
+        }
         return writerRepository.update(writer);
     }
 

@@ -3,7 +3,9 @@ package kz.education.view;
 import kz.education.controller.PostController;
 import kz.education.controller.WriterController;
 import kz.education.exception.EntityNotFoundException;
+import kz.education.model.Label;
 import kz.education.model.Post;
+import kz.education.model.Status;
 import kz.education.model.Writer;
 
 import java.util.ArrayList;
@@ -77,7 +79,8 @@ public class WriterView {
         String firstName = scanner.nextLine();
         System.out.print("Введите last name нового Writer: ");
         String lastName = scanner.nextLine();
-        Writer created = writerController.create(firstName, lastName);
+        List<Post> posts = createPosts();
+        Writer created = writerController.create(firstName, lastName, posts);
         System.out.println("Создано: " + created);
     }
 
@@ -91,8 +94,49 @@ public class WriterView {
         System.out.print("Введите новый last name: ");
         String lastName = scanner.nextLine();
 
-        Writer updated = writerController.update(id, firstName, lastName);
+        List<Post> posts = createPosts();
+
+        Writer updated = writerController.update(id, firstName, lastName, posts);
         System.out.println("Обновлено: " + updated);
+    }
+
+    private List<Post> createPosts() {
+        List<Post> posts = new ArrayList<>();
+
+        System.out.println("=== Создание Posts ===");
+        while (true) {
+            System.out.print("Введите title Post (или '0' для завершения): ");
+            String title = scanner.nextLine().trim();
+
+            if ("0".equals(title)) {
+                break;
+            }
+
+            if (title.isEmpty()) {
+                System.out.println("title не может быть пустым. Попробуйте снова.");
+                continue;
+            }
+
+            System.out.print("Введите content Post: ");
+            String content = scanner.nextLine().trim();
+
+            if (content.isEmpty()) {
+                System.out.println("content не может быть пустым. Попробуйте снова.");
+                continue;
+            }
+
+            System.out.print("Введите id Post ");
+            Long id = scanner.nextLong();
+
+            Post post = Post.builder()
+                    .id(id)
+                    .title(title)
+                    .content(content)
+                    .status(Status.ACTIVE).build();
+            posts.add(post);
+            System.out.println("Post добавлен: " + title);
+        }
+        return posts;
     }
 
     private void delete() {

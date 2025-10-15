@@ -71,5 +71,19 @@
     "firstName": "Олжас",
     "lastName": "Ли",
     "status": "ACTIVE"
+  },
+  {
+    "id": 4,
+    "firstName": "name",
+    "lastName": "last",
+    "posts": [
+      {
+        "id": 1,
+        "title": "title",
+        "content": "content",
+        "status": "ACTIVE"
+      }
+    ],
+    "status": "ACTIVE"
   }
 ]

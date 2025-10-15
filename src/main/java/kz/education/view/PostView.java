@@ -5,6 +5,7 @@ import kz.education.controller.PostController;
 import kz.education.exception.EntityNotFoundException;
 import kz.education.model.Label;
 import kz.education.model.Post;
+import kz.education.model.Status;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +78,8 @@ public class PostView {
         String title = scanner.nextLine();
         System.out.print("Введите content нового Post: ");
         String content = scanner.nextLine();
-        Post created = postController.create(title, content);
+        List<Label> labels = createLabels();
+        Post created = postController.create(title, content, labels);
         System.out.println("Создано: " + created);
     }
 
@@ -91,8 +93,37 @@ public class PostView {
         System.out.print("Введите новый content: ");
         String content = scanner.nextLine();
 
-        Post updated = postController.update(id, title, content);
+        List<Label> labels = createLabels();
+
+        Post updated = postController.update(id, title, content, labels);
         System.out.println("Обновлено: " + updated);
+    }
+
+    private List<Label> createLabels() {
+        List<Label> labels = new ArrayList<>();
+
+        System.out.println("=== Создание Labels ===");
+        while (true) {
+            System.out.print("Введите название Label (или '0' для завершения): ");
+            String name = scanner.nextLine().trim();
+
+            if ("0".equals(name)) {
+                break;
+            }
+
+            if (name.isEmpty()) {
+                System.out.println("Название не может быть пустым. Попробуйте снова.");
+                continue;
+            }
+
+            System.out.print("Введите id Label ");
+            Long id = scanner.nextLong();
+
+            Label label = new Label(id, name, Status.ACTIVE);
+            labels.add(label);
+            System.out.println("Label добавлен: " + name);
+        }
+        return labels;
     }
 
     private void delete() {

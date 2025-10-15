@@ -60,7 +60,7 @@ public class LabelView {
         try {
             Label label = labelController.getById(id);
             System.out.println("Найдено: " + label);
-        } catch (EntityNotFoundException e) {
+        } catch (EntityNotFoundException e) { //Нормальная практика ловить здесь наследников RuntimeException!!!
             System.err.println("Label с ID " + id + " не найден");
         }
     }

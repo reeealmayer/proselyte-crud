@@ -1,11 +1,11 @@
-package kz.education;
+package kz.education.view;
 
 import kz.education.context.ApplicationContext;
 
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
+public class MainView {
+    public static void run() {
         ApplicationContext applicationContext = ApplicationContext.getInstance();
 
         Scanner scanner = new Scanner(System.in);
@@ -30,5 +30,4 @@ public class Main {
             }
         }
     }
-
 }

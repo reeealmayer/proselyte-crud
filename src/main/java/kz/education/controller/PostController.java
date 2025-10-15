@@ -24,22 +24,25 @@ public class PostController {
         return postRepository.getById(id);
     }
 
-    public Post create(String title, String content) {
+    public Post create(String title, String content, List<Label> labels) {
         Post post = Post.builder()
                 .content(content)
                 .title(title)
                 .status(Status.ACTIVE)
-                .labels(Collections.emptyList())
+                .labels(labels)
                 .build();
         return postRepository.save(post);
     }
 
-    public Post update(Long id, String title, String content) {
+    public Post update(Long id, String title, String content, List<Label> labels) {
         Post post = Post.builder()
                 .id(id)
                 .title(title)
                 .content(content)
                 .build();
+        if (!labels.isEmpty()) {
+            post.setLabels(labels);
+        }
         return postRepository.update(post);
     }
 
