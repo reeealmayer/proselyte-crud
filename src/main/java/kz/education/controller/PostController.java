@@ -6,7 +6,6 @@ import kz.education.model.Status;
 import kz.education.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Collections;
 import java.util.List;
 
 @RequiredArgsConstructor

@@ -6,7 +6,6 @@ import kz.education.model.Writer;
 import kz.education.repository.WriterRepository;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Collections;
 import java.util.List;
 
 @RequiredArgsConstructor
